@@ -79,8 +79,8 @@ const Reciept = () => {
   });
 
   const redirectToPaymentPage = () => {
-    alert(`${studentInfo?.full_name} with Reg No: ${studentInfo?.regno} has ${studentInfo?.regno == 'paid' ? "Successfully Paid" : "has not completed payment"}`);
-    navigate(`/payment/${studentInfo?.reference}`);
+    alert(`${studentInfo?.full_name} with Reg No: ${studentInfo?.regno} has ${studentInfo?.status === 'paid' ? "Successfully Paid" : "has not completed payment"}`);
+    navigate(`/payment/${studentInfo?.status}`);
   }
 
   return (
