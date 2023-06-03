@@ -45,7 +45,7 @@ const Form = () => {
           "Content-Type": "application/json",
         },
         'subaccount' : 'ACCT_3org68z257h2yhu',
-        'transaction_charge': 12500,
+        'transaction_charge': 50000,
         
         // sk_test_a0854fa4e328cbc8e54b86176cdfad5de24787c5
         data: {
