@@ -24,7 +24,7 @@ const Form = () => {
   const [error, setError] = useState(null);
   const [paymentState, setPaymentState] = useState("");
   const [pendingPayment, setPendingPayment] = useState("");
-  const netlifyLink = 'https://647b2d5c5273c40008d4c7f3--kaleidoscopic-arithmetic-c4d519.netlify.app';
+  const netlifyLink = 'https://app.netlify.com/sites/kaleidoscopic-arithmetic-c4d519/deploys';
 
   const handleSubmit = (e) => {
     e.preventDefault();
