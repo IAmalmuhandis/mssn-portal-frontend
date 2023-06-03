@@ -261,8 +261,8 @@ const Form = () => {
         <Grid item xs={12} sm={12} md={5.78}>
           <TextField
             required
-            type="Email address"
-            label="Email"
+            type="email"
+            label="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             sx={{ width: "100%" }}
