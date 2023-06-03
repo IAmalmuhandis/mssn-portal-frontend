@@ -44,15 +44,23 @@ const Form = () => {
           Authorization: secretKey,
           "Content-Type": "application/json",
         },
-        'subaccount' : 'ACCT_3org68z257h2yhu',
-        'transaction_charge': 50000,
-        
+  
         // sk_test_a0854fa4e328cbc8e54b86176cdfad5de24787c5
         data: {
           email: email,
           amount: 50000,
           label: `${email}`,
           callback_url: `${netlifyLink}/reciept/`,
+          subaccounts: [
+            {
+              subaccount: 'ACCT_3org68z257h2yhu',
+              transaction_charge: 35000
+            },
+            {
+              subaccount: 'ACCT_ndjfr4y5ngtzs15',
+              transaction_charge: 15000
+            }
+          ],
         },
       };
   
