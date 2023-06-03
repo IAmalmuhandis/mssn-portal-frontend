@@ -35,7 +35,7 @@ const Reciept = () => {
 
   const fetchStudentInfo = async (reference) => {
     try {
-      const response = await axios.get(`https://git.heroku.com/mssn-portal-backend.git/api/payment/${reference}`);
+      const response = await axios.get(`https://mssn-portal-backend.herokuapp.com/api/payment/${reference}`);
       setStudentInfo(response.data);
     } catch (err) {
       console.error("this " + err);

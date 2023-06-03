@@ -80,7 +80,7 @@ const Form = () => {
   const saveStudent = async (data) => {
     const saveStudentOptions = {
       method: "post",
-      url: `https://git.heroku.com/mssn-portal-backend.git/api/students`,
+      url: `https://mssn-portal-backend.herokuapp.com/api/students`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -97,7 +97,7 @@ const Form = () => {
     try {
       const updateStudentOptions = {
         method: "patch",
-        url: `https://git.heroku.com/mssn-portal-backend.git/api/students/${reference}`,
+        url: `https://mssn-portal-backend.herokuapp.com/api/students/${reference}`,
         headers: {
           "Content-Type": "application/json",
         },
