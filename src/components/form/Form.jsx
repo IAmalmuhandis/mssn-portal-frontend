@@ -12,6 +12,7 @@ import {
 
 // const apiKey = process.env.TEST_PUBLIC_KEY;
 const secretKey ='Bearer sk_live_f169be3d3e2a074033cb34c6c9c92a1f64b0117d';
+const testSecretKey = 'Bearer sk_test_a0854fa4e328cbc8e54b86176cdfad5de24787c5';
 
 const Form = () => {
   const [name, setName] = useState("");
@@ -40,7 +41,7 @@ const Form = () => {
         method: "post",
         url: "https://api.paystack.co/transaction/initialize",
         headers: {
-          Authorization: secretKey,
+          Authorization: testSecretKey,
           "Content-Type": "application/json",
         },
         'subaccount' : 'ACCT_3org68z257h2yhu',
