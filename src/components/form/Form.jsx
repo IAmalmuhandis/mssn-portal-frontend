@@ -224,15 +224,11 @@ const Form = () => {
         <Grid item xs={12} sm={12} md={5.78}>
           <TextField
             required
-            select
-            label="Department"
+            label="Course of Study"
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
             sx={{ width: "100%" }}
           >
-            <MenuItem value="Department 1">Department 1</MenuItem>
-            <MenuItem value="Department 2">Department 2</MenuItem>
-            <MenuItem value="Department 3">Department 3</MenuItem>
           </TextField>
         </Grid>
         <Grid item xs={12} sm={12} md={5.78}>
