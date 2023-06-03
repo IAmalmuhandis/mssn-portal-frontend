@@ -25,6 +25,7 @@ const Reciept = () => {
   // console.log(searchParams.get('reference'))
   const generateQR = async () => {
     try {
+
       const text = `${studentInfo?.full_name} with Reg No: ${studentInfo?.regno} has ${studentInfo?.regno == 'paid' ? "Successfully Paid" : "has not completed payment"}`;
       const qr = await QRCode.toDataURL(text);
       setQrCode(qr);
@@ -79,7 +80,7 @@ const Reciept = () => {
 
   const redirectToPaymentPage = () => {
     alert(`${studentInfo?.full_name} with Reg No: ${studentInfo?.regno} has ${studentInfo?.regno == 'paid' ? "Successfully Paid" : "has not completed payment"}`);
-    navigate(`/payment/${searchParams.get('reference')}`);
+    navigate(`/payment/${studentInfo?.reference}`);
   }
 
   return (
