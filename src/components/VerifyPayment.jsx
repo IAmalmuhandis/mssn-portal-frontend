@@ -14,7 +14,7 @@ const VerifyPayment = () => {
   const reference = searchParams.get('reference')
   const fetchStudentInfo = async (reference) => {
     try {
-      const response = await axios.get(`https://mssn-portal-backend.herokuapp.com/api/payment/${reference}`);
+      const response = await axios.get(`https://mssn-portal-backend.herokuapp.com/api/payment/${searchParams.get('reference')}`);
       setStudentInfo(response.data);
     } catch (err) {
       console.error("this " + err);
@@ -26,7 +26,7 @@ const VerifyPayment = () => {
     fetchStudentInfo(reference)
   }, [reference]);
 
-console.log(reference);
+console.log(searchParams.get('reference'));
   return (
     <div className="payment-page">
       <Navbar />

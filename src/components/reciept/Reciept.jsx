@@ -23,10 +23,9 @@ const Reciept = () => {
   const netlifyLink = 'https://647b2d5c5273c40008d4c7f3--kaleidoscopic-arithmetic-c4d519.netlify.app/';
 
   // console.log(searchParams.get('reference'))
-  const generateQR = async (reference) => {
+  const generateQR = async () => {
     try {
-      const redirectLink = `${netlifyLink}/payment/${reference}`;
-      const text = `Reference: ${reference}\nRedirect Link: ${redirectLink}`;
+      const text = `${studentInfo?.full_name} with Reg No: ${studentInfo?.regno} has ${studentInfo?.regno == 'paid' ? "Successfully Paid" : "has not completed payment"}`;
       const qr = await QRCode.toDataURL(text);
       setQrCode(qr);
     } catch (err) {
@@ -55,7 +54,7 @@ const Reciept = () => {
   useEffect(() => {
 
     
-    generateQR(reference);
+    generateQR();
     
     fetchStudentInfo(reference);
   }, [location.search]);
@@ -79,7 +78,7 @@ const Reciept = () => {
   });
 
   const redirectToPaymentPage = () => {
-    alert("Verify Payment by scanning your QR Code");
+    alert(`${studentInfo?.full_name} with Reg No: ${studentInfo?.regno} has ${studentInfo?.regno == 'paid' ? "Successfully Paid" : "has not completed payment"}`);
     navigate(`/payment/${searchParams.get('reference')}`);
   }
 
