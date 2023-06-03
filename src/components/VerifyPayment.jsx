@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Paper, Typography } from "@mui/material";
 import Navbar from "./navbar/Navbar";
 import mssnLogo from "./../assets/paid.png";
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
@@ -12,13 +12,14 @@ const VerifyPayment = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const ref = params.get("reference");
-  const [reference, setReference] = useState("");
   const [studentInfo, setStudentInfo] = useState("");
+  const [searchParams] = useSearchParams();
+  const reference = searchParams.get('reference')
 
 
   const fetchStudentInfo = async (reference) => {
     try {
-      const response = await axios.get(`https://mssn-portal-backend.herokuapp.com/api/payment/${reference}`);
+      const response = await axios.get(`https://mssn-portal-backend.herokuapp.com/api/students/${reference}`);
       setStudentInfo(response.data);
     } catch (err) {
       console.error("this " + err);
