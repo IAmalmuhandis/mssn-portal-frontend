@@ -9,14 +9,9 @@ import axios from 'axios';
 import './verifyPayment.css';
 
 const VerifyPayment = () => {
-  const location = useLocation();
-  const params = new URLSearchParams(location.search);
-  const ref = params.get("reference");
   const [studentInfo, setStudentInfo] = useState("");
   const [searchParams] = useSearchParams();
   const reference = searchParams.get('reference')
-
-
   const fetchStudentInfo = async (reference) => {
     try {
       const response = await axios.get(`https://mssn-portal-backend.herokuapp.com/api/payment/${reference}`);
@@ -25,12 +20,13 @@ const VerifyPayment = () => {
       console.error("this " + err);
     }
   };
-  console.log(studentInfo);
+  
   
   useEffect(() => {
     fetchStudentInfo(reference)
   }, [reference]);
-console.log(ref);
+
+console.log(reference);
   return (
     <div className="payment-page">
       <Navbar />

@@ -46,7 +46,7 @@ const Reciept = () => {
   
   useEffect(() => {
     fetchStudentInfo(reference)
-  }, []);
+  }, [reference]);
 
   useEffect(() => {
     setCurrentDate(new Date());
