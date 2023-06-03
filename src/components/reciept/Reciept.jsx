@@ -23,7 +23,7 @@ const Reciept = () => {
   const generateQR = async (studentInfo) => {
     try {
 
-      const text = `${studentInfo?.full_name} with Reg No: ${studentInfo?.regno} has ${studentInfo?.regno === 'paid' ? "Successfully Paid" : "has not completed payment"}`;
+      const text = `${studentInfo.full_name} with Reg No: ${studentInfo.regno} has ${studentInfo.regno === 'paid' ? "Successfully Paid" : "has not completed payment"}`;
       const qr = await QRCode.toDataURL(text);
       setQrCode(qr);
     } catch (err) {
@@ -42,7 +42,7 @@ const Reciept = () => {
   useEffect(() => {
     fetchStudentInfo(reference)
     generateQR(studentInfo);
-  }, [reference]);
+  }, [reference, studentInfo]);
 
   useEffect(() => {
     setCurrentDate(new Date());
