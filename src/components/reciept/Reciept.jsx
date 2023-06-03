@@ -20,7 +20,7 @@ const Reciept = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const reference = searchParams.get('reference')
-  const netlifyLink = 'https://app.netlify.com/sites/kaleidoscopic-arithmetic-c4d519/deploys/';
+  const netlifyLink = 'https://647b505fabc91900087c5a21--kaleidoscopic-arithmetic-c4d519.netlify.app/';
 
   // console.log(searchParams.get('reference'))
   const generateQR = async () => {
