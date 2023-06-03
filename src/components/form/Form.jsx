@@ -23,6 +23,7 @@ const Form = () => {
   const [error, setError] = useState(null);
   const [paymentState, setPaymentState] = useState("");
   const [pendingPayment, setPendingPayment] = useState("");
+  const netlifyLink = 'https://647b2d5c5273c40008d4c7f3--kaleidoscopic-arithmetic-c4d519.netlify.app';
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,7 +51,7 @@ const Form = () => {
           email: email,
           amount: 50000,
           label: `${email}`,
-          callback_url: `https://master--kaleidoscopic-arithmetic-c4d519.netlify.app/reciept/`,
+          callback_url: `${netlifyLink}/reciept/`,
         },
       };
   
