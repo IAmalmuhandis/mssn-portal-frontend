@@ -50,7 +50,7 @@ const Form = () => {
           email: email,
           amount: 50000,
           label: `${email}`,
-          callback_url: `http://localhost:3000/reciept/`,
+          callback_url: `https://master--kaleidoscopic-arithmetic-c4d519.netlify.app/reciept/`,
         },
       };
   

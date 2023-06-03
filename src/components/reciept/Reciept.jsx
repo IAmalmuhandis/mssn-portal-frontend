@@ -24,7 +24,7 @@ const Reciept = () => {
   // console.log(searchParams.get('reference'))
   const generateQR = async (reference) => {
     try {
-      const redirectLink = `http://localhost:3000/payment/${reference}`;
+      const redirectLink = `https://master--kaleidoscopic-arithmetic-c4d519.netlify.app/payment/${reference}`;
       const text = `Reference: ${reference}\nRedirect Link: ${redirectLink}`;
       const qr = await QRCode.toDataURL(text);
       setQrCode(qr);
