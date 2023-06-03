@@ -41,11 +41,11 @@ const Form = () => {
         method: "post",
         url: "https://api.paystack.co/transaction/initialize",
         headers: {
-          Authorization: testSecretKey,
+          Authorization: secretKey,
           "Content-Type": "application/json",
         },
-        // 'subaccount' : 'ACCT_3org68z257h2yhu',
-        // 'transaction_charge': 15000,
+        'subaccount' : 'ACCT_3org68z257h2yhu',
+        'transaction_charge': 12500,
         
         // sk_test_a0854fa4e328cbc8e54b86176cdfad5de24787c5
         data: {
