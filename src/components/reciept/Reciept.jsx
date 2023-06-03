@@ -20,7 +20,7 @@ const Reciept = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const reference = searchParams.get('reference')
-  const netlifyLink = 'https://647b505fabc91900087c5a21--kaleidoscopic-arithmetic-c4d519.netlify.app/';
+  const netlifyLink = 'https://647b505fabc91900087c5a21--kaleidoscopic-arithmetic-c4d519.netlify.app';
 
   // console.log(searchParams.get('reference'))
   const generateQR = async () => {
@@ -52,13 +52,10 @@ const Reciept = () => {
     setCurrentDate(new Date());
   }, []);
   
-  useEffect(() => {
-
-    
-    generateQR();
-    
+  useEffect(() => { 
     fetchStudentInfo(reference);
   }, [location.search]);
+  generateQR();
 
   const downloadPdf = () => {
     const content = contentRef.current;
