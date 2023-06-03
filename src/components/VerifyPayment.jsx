@@ -74,9 +74,6 @@ console.log(searchParams.get('reference'));
               <Typography variant="h6" align="center">
                 Payment Successful!
               </Typography>
-              <Typography variant="body1" align="center">
-                Student with Registration number {studentInfo?.regno} has made the payment. 
-              </Typography>
             </div>
           </Box>
         </Paper>
