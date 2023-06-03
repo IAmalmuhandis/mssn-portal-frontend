@@ -28,8 +28,8 @@ const VerifyPayment = () => {
   
   useEffect(() => {
     fetchStudentInfo(reference)
-  }, []);
-
+  }, [reference]);
+console.log(ref);
   return (
     <div className="payment-page">
       <Navbar />

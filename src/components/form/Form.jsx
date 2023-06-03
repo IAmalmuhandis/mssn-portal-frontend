@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
@@ -10,9 +9,8 @@ import {
   Typography,
   MenuItem,
 } from "@mui/material";
-import { baseUrl } from "../../utils/constants";
 
-const apiKey = process.env.TEST_PUBLIC_KEY;
+// const apiKey = process.env.TEST_PUBLIC_KEY;
 const secretKey ='Bearer sk_live_f169be3d3e2a074033cb34c6c9c92a1f64b0117d';
 
 const Form = () => {
@@ -25,11 +23,10 @@ const Form = () => {
   const [error, setError] = useState(null);
   const [paymentState, setPaymentState] = useState("");
   const [pendingPayment, setPendingPayment] = useState("");
-  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setPendingPayment(50000);
     if (!validateForm()) {
       return;
     }
@@ -61,6 +58,7 @@ const Form = () => {
       console.log(res.data.data.reference);
       if (res.data.status) {
         console.log(res.data)
+        
         await saveStudent({
           reference: res.data.data.reference,
           amount: 500,
@@ -89,11 +87,13 @@ const Form = () => {
       
       data: data
     };
-
+    
     await axios(saveStudentOptions);
     
   }
   const updateStudent = async (reference, status) => {
+
+    
     try {
       const updateStudentOptions = {
         method: "patch",
