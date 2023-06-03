@@ -18,7 +18,7 @@ const VerifyPayment = () => {
 
   const fetchStudentInfo = async (reference) => {
     try {
-      const response = await axios.get(`http://localhost:8081/api/payment/${reference}`);
+      const response = await axios.get(`https://git.heroku.com/mssn-portal-backend.git/api/payment/${reference}`);
       setStudentInfo(response.data);
     } catch (err) {
       console.error("this " + err);
