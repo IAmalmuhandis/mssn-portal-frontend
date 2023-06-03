@@ -23,7 +23,7 @@ const Reciept = () => {
   const generateQR = async () => {
     try {
 
-      const text = `${studentInfo?.full_name} with Reg No: ${studentInfo?.regno} has ${studentInfo?.regno == 'paid' ? "Successfully Paid" : "has not completed payment"}`;
+      const text = `Student has made payment`;
       const qr = await QRCode.toDataURL(text);
       setQrCode(qr);
     } catch (err) {
