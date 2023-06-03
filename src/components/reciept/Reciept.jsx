@@ -15,16 +15,15 @@ const Reciept = () => {
   const [qrCode, setQrCode] = useState('')
   const [studentInfo, setStudentInfo] = useState(null);
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [text, setText] = useState("")
   const contentRef = useRef();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const reference = searchParams.get('reference')
   // console.log(searchParams.get('reference'))
-  const generateQR = async (studentInfo) => {
+  const generateQR = async () => {
     try {
-
-      const text = `${studentInfo.full_name} with Reg No: ${studentInfo.regno} has ${studentInfo.regno === 'paid' ? "Successfully Paid" : "has not completed payment"}`;
-      const qr = await QRCode.toDataURL(text);
+     const qr = await QRCode.toDataURL(text);
       setQrCode(qr);
     } catch (err) {
       console.error(err);
@@ -41,7 +40,7 @@ const Reciept = () => {
   };
   useEffect(() => {
     fetchStudentInfo(reference)
-    generateQR(studentInfo);
+    generateQR();
   }, [reference, studentInfo]);
 
   useEffect(() => {
@@ -67,6 +66,7 @@ const Reciept = () => {
 
   const redirectToPaymentPage = () => {
     alert(`${studentInfo?.full_name} with Reg No: ${studentInfo?.regno} has ${studentInfo?.status === 'paid' ? "Successfully Paid" : "has not completed payment"}`);
+    setText(`${studentInfo?.full_name} with Reg No: ${studentInfo?.regno} has ${studentInfo?.regno === 'paid' ? "Successfully Paid" : "has not completed payment"}`)
     navigate(`/payment/${studentInfo?.status}`);
   }
 
