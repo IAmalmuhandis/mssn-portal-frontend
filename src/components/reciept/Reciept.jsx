@@ -16,14 +16,17 @@ const Reciept = () => {
   const [studentInfo, setStudentInfo] = useState(null);
   const [currentDate, setCurrentDate] = useState(new Date());
   const contentRef = useRef();
+  const location = useLocation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const reference = searchParams.get('reference')
+  const netlifyLink = 'https://647b2d5c5273c40008d4c7f3--kaleidoscopic-arithmetic-c4d519.netlify.app/';
+
   // console.log(searchParams.get('reference'))
   const generateQR = async () => {
     try {
 
-      const text = `Student has made payment`;
+      const text = `student has made payment`;
       const qr = await QRCode.toDataURL(text);
       setQrCode(qr);
     } catch (err) {
@@ -43,11 +46,17 @@ const Reciept = () => {
   
   useEffect(() => {
     fetchStudentInfo(reference)
+    generateQR();
   }, [reference]);
 
   useEffect(() => {
     setCurrentDate(new Date());
   }, []);
+  
+  useEffect(() => {    
+    fetchStudentInfo(reference);
+    generateQR();
+  }, [location.search]);
 
   const downloadPdf = () => {
     const content = contentRef.current;
